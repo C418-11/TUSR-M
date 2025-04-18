@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>未找到页面 | 404</title>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    /* 磨砂玻璃容器 */
+    .container {
+        padding: 1.7em;
+        background: var(--surface-color);
+        border-radius: 2em;
+        box-shadow: 0 .5em 2em rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(1.3em);
+        -webkit-backdrop-filter: blur(1.3em);
+        z-index: 1;
+    }
+
+    h1 {
+        font-size: 5rem;
+        color: #2d3436;
+        margin-bottom: 0px;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        color: #2d3436;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #636e72;
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+
+    .home-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 1em 2em;
+        background: rgba(52, 152, 219, 0.9);
+        color: white;
+        text-decoration: none;
+        border-radius: .5em;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(.5em);
+    }
+
+    .home-btn:hover {
+        background: rgba(41, 128, 185, 0.9);
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>404</h1>
+    <h2>访问的页面不存在</h2>
+    <p id="action-text"></p>
+    <a href="/" class="home-btn">返回主页</a>
+</div>
+
+<script>
+    const lostActions = [
+        "你迷路了，是不是走错了方向？",
+        "这里没有你想要的东西，不如去别的地方看看吧。",
+        "你似乎迷失了方向。",
+        "别看了，这里没有你想要的东西。",
+        "海盗的藏宝图画错了坐标，这里没有宝藏！",
+        "宇航员，我们偏离了星际航线！",
+        "魔术师刚刚把这一页变消失了。",
+        "欢迎来到数字迷宫，可惜出口不在这里！",
+        "时光机故障，你被传送到了不存在的时空。",
+        "沙漠中的海市蜃楼，真实绿洲在别处。",
+        "拼图丢失了一块，就像这个页面。",
+        "主厨说这道菜还没研发完成呢。",
+        "摄影师还没对准焦点，画面就消失了。",
+        "这页书被隐形墨水写过，换个章节看看吧？",
+        "乐队突然休止，音符都跑调了。",
+        "侦探的调查线索在这里中断了？",
+        "外星人偷走了这个页面当纪念品...",
+        "滑雪道出现断层，请换个雪坡。",
+        "冲浪时遇到反向浪，带你来到空白海域。",
+        "科学家的实验试管突然清空了。",
+        "园丁还没种下这个品种的花朵。",
+        "导演喊了cut，这个场景被删除了。",
+        "快递员送错了地址，包裹不在此处。",
+        "天气预报显示：此区域无数据云团。",
+        "游戏加载失败，换个副本试试吧！"
+    ];
+
+    function showRandomMessage() {
+        const actionText = document.getElementById('action-text');
+        actionText.textContent = lostActions[Math.floor(Math.random() * lostActions.length)];
+    }
+
+    window.addEventListener('DOMContentLoaded', showRandomMessage);
+</script>
+{% endblock %}

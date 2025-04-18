@@ -1,0 +1,68 @@
+/* ===== 基础变量 ===== */
+:root {
+  /* 主色系 */
+  --primary-color: #4361ee;    /* 现代蓝 */
+  --secondary-color: #06d6a0;  /* 活力青 */
+  --accent-color: #ff6b6b;     /* 珊瑚红 */
+
+  /* 中性色 */
+  --neutral-50: #f8f9fa;
+  --neutral-100: #f1f3f5;
+  --neutral-200: #e9ecef;
+  --neutral-500: #adb5bd;
+  --neutral-700: #495057;
+  --neutral-900: #212529;
+
+  /* 功能色 */
+  --success-color: #20c997;
+  --warning-color: #ffd43b;
+  --error-color: #ff6b6b;
+
+  /* 过渡动画 */
+  --transition-duration: 10s;
+
+  /* 表面颜色 */
+  --surface-color: rgba(255, 255, 255, 0.5);
+
+  /* 文字颜色 */
+  --text-color: var(--neutral-900);
+
+  /* 背景彩斑 */
+  --spot-colors: #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEEAD, #FF9F43
+}
+
+/* ===== 亮色主题 ===== */
+:root {
+  --background-color: var(--neutral-100);
+  --text-muted: var(--neutral-700);
+
+  --border-color: var(--neutral-200);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 暗色主题 ===== */
+@media (prefers-color-scheme: dark) {
+  [data-theme="sync"] {
+    --background-color: var(--neutral-900);
+    --text-muted: var(--neutral-500);
+
+    --border-color: var(--neutral-700);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ===== 手动切换备用方案 ===== */
+[data-theme="dark"] {
+  --background-color: var(--neutral-900);
+  --text-muted: var(--neutral-500);
+
+  --border-color: var(--neutral-700);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== 应用过渡效果 ===== */
+body {
+  transition:
+    background-color var(--transition-duration),
+    color var(--transition-duration);
+}

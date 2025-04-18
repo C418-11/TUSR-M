@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 网站图标 -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- css变量 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <!-- 背景样式表 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <!-- 基础样式表 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <!-- 主题切换样式表 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-switcher.css') }}">
+    <!-- 自定义 -->
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- 主题切换 -->
+    <div class="theme-switcher">
+        <button id="theme-switcher-button" class="theme-switcher-button">
+            <img id="theme-switcher-icon" alt="切换主题">
+            <img id="theme-switcher-preview" alt="主题预览">
+        </button>
+    </div>
+    <!-- 斑点背景 -->
+    <div class="spots" id="spots-container"></div>
+    <!-- 页面内容块 -->
+    {% block content %}{% endblock %}
+    <!-- 主题数据 -->
+    <script>
+        const ThemeDatas = {
+            "sync": {
+                "icon": "{{ url_for('static', filename='svg/theme/sync.svg') }}",
+                "desc": "同步",
+            },
+            "dark": {
+                "icon": "{{ url_for('static', filename='svg/theme/dark.svg') }}",
+                "desc": "暗黑",
+            },
+            "light": {
+                "icon": "{{ url_for('static', filename='svg/theme/light.svg') }}",
+                "desc": "明亮",
+            }
+        };
+
+        const Themes = ["sync", "light", "dark"];
+    </script>
+    <!-- 基础脚本 -->
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <!-- 背景脚本 -->
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+</body>
+</html>

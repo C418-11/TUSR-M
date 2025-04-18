@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>方法不被允许 | 405</title>
+<style>
+    body {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        min-height: 100vh; 
+        margin: 0; 
+    }
+    .container {
+        padding: 1.7em;
+        background: var(--surface-color);
+        border-radius: 2em;
+        box-shadow: 0 .5em 2em rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(1.3em);
+        -webkit-backdrop-filter: blur(1.3em);
+        z-index: 1;
+    }
+    h1 {
+        font-size: 5rem;
+        color: #2d3436;
+        margin-bottom: 0px;
+    }
+    h2 {
+        font-size: 2.4rem;
+        color: #2d3436;
+        margin-bottom: 1rem;
+    }
+    p {
+        font-size: 1.2rem;
+        color: #636e72;
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+    .home-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 1em 2em;
+        background: rgba(52, 152, 219, 0.9);
+        color: white;
+        text-decoration: none;
+        border-radius: .5em;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(.5em);
+    }
+    .home-btn:hover {
+        background: rgba(41, 128, 185, 0.9);
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>405</h1>
+    <h2>请求方法不被允许</h2>
+    <p id="action-text"></p>
+    <a href="/" class="home-btn">返回主页</a>
+</div>
+<script>
+    const methodMessages = [
+        "你使用了错误的请求方式，试试其他方法？",
+        "这个接口不接受这种操作方式。",
+        "HTTP方法似乎用错了，检查一下？",
+        "程序员说这个路径不支持这种操作。",
+        "路由器：这个信号频率无法解析！",
+        "请求方法像把错误的钥匙，开不了这扇门。",
+        "服务器管家礼貌地拒绝了你的操作。",
+        "这个API端点只接受特定类型的请求。",
+        "HTTP方法像穿错的舞鞋，无法匹配节拍。",
+        "请求头里的方法字段需要重新校对。",
+        "接口说明书里没有这个操作指南。",
+        "服务器说：这个动词不在我的字典里。",
+        "请求方法像迷路的信鸽，找不到收件箱。",
+        "API地图上没标记这个方法的路线。",
+        "数字哨兵检测到非常规操作请求。",
+        "协议森林里没有这条方法小径。"
+    ];
+    function showRandomMessage() {
+        const actionText = document.getElementById('action-text');
+        actionText.textContent = methodMessages[Math.floor(Math.random() * methodMessages.length)];
+    }
+    window.addEventListener('DOMContentLoaded', showRandomMessage);
+</script>
+{% endblock %}

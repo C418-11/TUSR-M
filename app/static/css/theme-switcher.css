@@ -1,0 +1,44 @@
+.theme-switcher {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.theme-switcher button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.theme-switcher button img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3em;
+    height: 3em;
+    margin: 0.1em;
+    transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+
+#theme-switcher-icon {
+    z-index: 1;
+    opacity: 1;
+}
+
+#theme-switcher-preview {
+    opacity: 0;
+    z-index: 0; /* 确保预览在图标下方 */
+}
+
+/* 悬停时切换透明度 */
+.theme-switcher button:hover #theme-switcher-icon {
+    opacity: 0;
+}
+
+.theme-switcher button:hover #theme-switcher-preview {
+    opacity: 1;
+}
